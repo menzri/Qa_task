@@ -1,0 +1,3 @@
+pip install webdriver-manager
+pip install pytest 
+pip install selenium==4.0.0  
