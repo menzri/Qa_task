@@ -1,14 +1,7 @@
 import pytest
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from model import select_element, send_text, is_element_visible
 from config import generate_random
-# Fixture to set up and tear down the WebDriver instance
-@pytest.fixture
-def chrome_browser():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    yield driver
-    driver.quit()
+
 # Test case to verify successful login with valid credentials
 @pytest.mark.parametrize("username, password", [("user1", "password1"),("user2", "password2"),("user3", "password3")])
 def test_login_success(chrome_browser, username, password):

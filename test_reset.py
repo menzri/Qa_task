@@ -1,14 +1,7 @@
 import pytest
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from model import select_element, send_text, is_element_visible
 from config import generate_random
-# Fixture to set up and tear down the WebDriver instance
-@pytest.fixture
-def chrome_browser():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    yield driver
-    driver.quit()
+
 # Test case to verify successful password reset and email notification 
 @pytest.mark.parametrize("username, email", [("user1", "user1@example.com"), ("user2", "user2@example.com"), ("user3", "user3@example.com")])
 def test_reset_success(chrome_browser, username, email):
